@@ -25,9 +25,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-DATABASE_URL = os.environ['postgres://irjuqlvckvpuzj:7f4ca1e13881565fde4a554d62bf34d046b82f84a2b64a001c63b98f770d6b0f@ec2-54-159-22-90.compute-1.amazonaws.com:5432/d91s4igoqpn4pm']
+db = SQL("sqlite:///finance.db")
 
-db = psycopg2.connect(DATABASE_URL, sslmode='require')
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
