@@ -32,7 +32,7 @@ Session(app)
                              database="d91s4igoqpn4pm")
 db = connection.cursor()"""
 db = SQL("postgres://irjuqlvckvpuzj:7f4ca1e13881565fde4a554d62bf34d046b82f84a2b64a001c63b98f770d6b0f@ec2-54-159-22-90.compute-1.amazonaws.com:5432/d91s4igoqpn4pm")
-#db = SQL("sqlite:///finance.db")
+# for sqlitedb = SQL("sqlite:///finance.db")
 
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
