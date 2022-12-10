@@ -5,7 +5,6 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 import datetime
-import psycopg2
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
@@ -24,14 +23,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Configure CS50 Library to use SQLite database
-"""connection = psycopg2.connect(user="irjuqlvckvpuzj",
-                             password="7f4ca1e13881565fde4a554d62bf34d046b82f84a2b64a001c63b98f770d6b0f",
-                             host="ec2-54-159-22-90.compute-1.amazonaws.com",
-                             port="5432",
-                             database="d91s4igoqpn4pm")
-db = connection.cursor()"""
-#db = SQL("postgres://irjuqlvckvpuzj:7f4ca1e13881565fde4a554d62bf34d046b82f84a2b64a001c63b98f770d6b0f@ec2-54-159-22-90.compute-1.amazonaws.com:5432/d91s4igoqpn4pm")
 db = SQL("sqlite:///finance.db")
 
 # Make sure API key is set
