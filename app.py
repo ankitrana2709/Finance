@@ -5,6 +5,8 @@ from flask_session import Session
 from tempfile import mkdtemp
 import datetime
 from werkzeug.security import check_password_hash, generate_password_hash
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
 
 from helpers import apology, login_required, lookup, usd
 
@@ -22,6 +24,9 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+engine = create_engine(os.getenv("postgres://mxdbtvvr:aZWZQkZjukNsrrF2W85-kCV_-sLFIUgx@hansken.db.elephantsql.com/mxdbtvvr")) # database engine object from SQLAlchemy that manages connections to the database
+                                                    # DATABASE_URL is an environment variable that indicates where the database lives
+db = scoped_session(sessionmaker(bind=engine))
 db = SQL("sqlite:///finance.db")
 #uri = os.getenv("DATABASE_URL")
 #if uri.startswith("postgres://"):
