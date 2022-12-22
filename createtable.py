@@ -1,0 +1,8 @@
+"""CREATE TABLE transactions (
+	trans_id SERIAL PRIMARY KEY NOT NULL,
+	user_id INTEGER NOT NULL,
+	comp_id INTEGER NOT NULL,
+	shares INTEGER NOT NULL,
+	price REAL NOT NULL,
+	time TIMESTAMP NOT NULL
+)"""
