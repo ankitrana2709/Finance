@@ -1,11 +1,3 @@
-[tool.poetry]
-name = "ankfinance"
-version = "0.1.0"
-description = ""
-authors = ["ankit rana <ankitranastun@gmail.com>"]
-[tool.poetry.dependencies]
-python = "^3.7"
-Flask = "2.0.2"
 asyncio="3.4.3"
 atomicwrites="1.4.0"
 attrs="20.3.0"
@@ -98,6 +90,8 @@ sortedcontainers="2.4.0"
 soupsieve="2.3.2.post1"
 SQLAlchemy="1.4.37"
 sqlparse="0.4.2"
+style50="2.7.5"
+submit50="3.1.1"
 tenacity="8.0.1"
 termcolor="1.1.0"
 tinycss2="1.1.1"
@@ -112,15 +106,3 @@ websockets="10.3"
 Werkzeug="2.1.2"
 yfinance="0.1.72"
 zopfli="0.2.1"
-python-dotenv = "0.19.2"
-flask-mongoengine = "1.0.0"
-
-[tool.poetry.dev-dependencies]
-mypy = "^0.910"
-black = {version = "^21.7b0", allow-prereleases = true}
-
-[tool.black]
-line-length = 80
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
