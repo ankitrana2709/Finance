@@ -6,6 +6,9 @@ authors = ["ankit rana <ankitranastun@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 Flask = "2.0.2"
+Flask-CLI="0.4.0"
+Flask-Session="0.4.0"
+Flask-SQLAlchemy="2.5.1"
 python-dotenv = "0.19.2"
 flask-mongoengine = "1.0.0"
 pytest = "6.2.1"
