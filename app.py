@@ -1,11 +1,13 @@
 import os
-#from sql import SQL
+
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 import datetime
+import psycopg2
 from werkzeug.security import check_password_hash, generate_password_hash
+
 from helpers import apology, login_required, lookup, usd
 
 # Configure application
@@ -21,13 +23,17 @@ app.jinja_env.filters["usd"] = usd
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-#app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///finance.db'
-#db= SQL("postgres://mxdbtvvr:aZWZQkZjukNsrrF2W85-kCV_-sLFIUgx@hansken.db.elephantsql.com/mxdbtvvr")
+
+# Configure CS50 Library to use SQLite database
+"""connection = psycopg2.connect(user="irjuqlvckvpuzj",
+                             password="7f4ca1e13881565fde4a554d62bf34d046b82f84a2b64a001c63b98f770d6b0f",
+                             host="ec2-54-159-22-90.compute-1.amazonaws.com",
+                             port="5432",
+                             database="d91s4igoqpn4pm")
+db = connection.cursor()"""
+#db = SQL("postgres://irjuqlvckvpuzj:7f4ca1e13881565fde4a554d62bf34d046b82f84a2b64a001c63b98f770d6b0f@ec2-54-159-22-90.compute-1.amazonaws.com:5432/d91s4igoqpn4pm")
 db = SQL("sqlite:///finance.db")
-#uri = os.getenv("DATABASE_URL")
-#if uri.startswith("postgres://"):
-#    uri = uri.replace("postgres://", "postgresql://")
-# db = SQL(uri)
+
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
@@ -274,4 +280,3 @@ def sell():
 
         flash("Sold!")
         return redirect("/")
-
